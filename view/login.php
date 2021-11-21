@@ -1,24 +1,29 @@
 <?php
+session_start();
 
-require "navbar.php";
+require "controller/connexion.php";
 
 ?>
-<div class="container">
-    <div class="row center">
-        <div class="col">
-            <div class="col-md-3 offset-4 center-block  my-auto text-center login">
-                <form>
-                    <div class="mb-3">
-                        <label for="mailConnect" class="form-label">Email address</label>
-                        <input type="email" class="form-control" name="mailConnect" id="mailConnect">
-                    </div>
-                    <div class="mb-3">
-                        <label for="mdpConnect" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="mdpConnect" name="mdpConnect">
-                    </div>
-                    <button type="submit" class="btn btn-primary" name="connexion">Submit</button>
-                </form>
-            </div>
+
+<div class="col-md-4 offset-4 center-block  my-auto signIn">
+    <form action="" method="post" class="form-group">
+        <div>
+            <label for="mailConnect">email:</label>
+            <input type="email" name="mailConnect" id="mailConnect" class="form-control">
         </div>
-    </div>
+        <div>
+            <label for="mdpConnect">mot de passe:</label>
+            <input type="password" name="mdpConnect" id="mdpConnect" class="form-control">
+        </div>
+        <br>
+        <div>
+            <input type="submit" class="btn btn-primary" value="connexion" name="connexion">
+        </div>
+    </form>
+    <?php
+    if (isset($erreur)) {
+        echo "<p class='text-danger'>" . $erreur . "</p>";
+    }
+    ?>
 </div>
+<?php require "foot.php" ?>

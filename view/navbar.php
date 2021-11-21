@@ -11,7 +11,16 @@ require "head.php";
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <?php
+                if (!isset($_SESSION['id'])) { ?>
+                <a class="nav-link" href="login.php">Connexion</a>
+                <?php
+                } else {
+                ?>
+                <a class="nav-link" href="deconnexion.php">deconnexion</a>
+                <?php
+                }
+                ?>
                 <a class="nav-link" href="#">Features</a>
                 <a class="nav-link" href="#">Pricing</a>
                 <a class="nav-link disabled">Disabled</a>

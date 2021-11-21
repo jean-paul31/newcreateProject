@@ -2,13 +2,8 @@
 
 require './view/navbar.php';
 
-if ($_SESSION['id']) 
-{
+if (isset($_GET['id'])) {
     require "./view/import.php";
-}
-else
-{
+} else {
     require "./view/login.php";
 }
-
-require "./view/foot.php";
