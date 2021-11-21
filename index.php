@@ -1,3 +1,3 @@
 <?php
 
-require "view/connexion.php";
+require "./view/login.php";
