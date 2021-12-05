@@ -12,12 +12,12 @@ require "head.php";
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <?php
-                if (!isset($_SESSION['id'])) { ?>
-                <a class="nav-link" href="login.php">Connexion</a>
+                if (isset($_GET['id'])) { ?>
+                <a class="nav-link" href="deconnexion.php">deconnexion</a>
                 <?php
                 } else {
                 ?>
-                <a class="nav-link" href="deconnexion.php">deconnexion</a>
+                <a class="nav-link" href="login.php">Connexion</a>
                 <?php
                 }
                 ?>

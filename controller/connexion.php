@@ -12,14 +12,13 @@ try {
 
         if (!empty($mailConnect) and !empty($mdpConnect)) {
             echo "la aussi";
-            $reqUser = $conn->prepare("SELECT * FROM users WHERE mail = ? AND mdp = ?");
+            $reqUser = $conn->prepare("SELECT * FROM users WHERE email = ? AND mdp = ?");
             $reqUser->execute(array($mailConnect, $mdpConnect));
             $userExist = $reqUser->rowCount();
             if ($userExist == 1) {
                 echo "et la aussi";
                 $userinfo = $reqUser->fetch();
                 $_SESSION['id'] = $userinfo['id'];
-                $_SESSION['name'] = $userinfo['name'];
                 $_SESSION['mail'] = $userinfo['mail'];
                 $_SESSION['admin'] = $userinfo['admin'];
                 header("Location: index.php?id=" . $_SESSION['id']);
